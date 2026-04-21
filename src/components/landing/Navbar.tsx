@@ -1,50 +1,77 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-import { Menu, X, Globe } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
+import { Menu, X, ExternalLink } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import aceedxLogo from "@/assets/aceedx-logo.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+  const isMarketplace = location.pathname === "/marketplace";
 
-  const navLinks = [
-    { label: "Programs", href: "/marketplace" },
-    { label: "How It Works", href: "#how-it-works" },
-    { label: "Safety", href: "#safety" },
-    { label: "About", href: "#about" },
-  ];
+  const navLinks = isMarketplace
+    ? [
+        { label: "Programs", href: "#programs" },
+        { label: "Why Sweden", href: "#why-sweden" },
+        { label: "Itinerary", href: "#itinerary" },
+        { label: "Eligibility", href: "#eligibility" },
+        { label: "Register", href: "#register" },
+      ]
+    : [
+        { label: "Programs", href: "/marketplace" },
+        { label: "How It Works", href: "#how-it-works" },
+        { label: "Safety", href: "#safety" },
+        { label: "About", href: "#about" },
+      ];
+
+  const handleClick = (href: string) => {
+    setIsOpen(false);
+    if (href.startsWith("#")) {
+      const el = document.querySelector(href);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-card/80 backdrop-blur-xl border-b border-border">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/85 backdrop-blur-xl border-b border-border">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2">
-          <div className="w-9 h-9 rounded-lg gradient-primary flex items-center justify-center">
-            <Globe className="w-5 h-5 text-primary-foreground" />
-          </div>
-          <span className="font-display text-xl font-bold text-foreground">
-            AceEdX
-          </span>
+          <img src={aceedxLogo} alt="AceEdX" className="h-10 w-auto" />
         </Link>
 
         <div className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-            >
-              {link.label}
-            </a>
-          ))}
+          {navLinks.map((link) =>
+            link.href.startsWith("/") ? (
+              <Link
+                key={link.label}
+                to={link.href}
+                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              >
+                {link.label}
+              </Link>
+            ) : (
+              <a
+                key={link.label}
+                href={link.href}
+                onClick={(e) => { e.preventDefault(); handleClick(link.href); }}
+                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              >
+                {link.label}
+              </a>
+            )
+          )}
         </div>
 
         <div className="hidden md:flex items-center gap-3">
-          <Button variant="ghost" asChild>
-            <Link to="/login">Sign In</Link>
-          </Button>
-          <Button className="gradient-primary text-primary-foreground border-0" asChild>
-            <Link to="/register">Get Started</Link>
-          </Button>
+          <a
+            href="https://www.aceedx.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 text-sm font-medium text-primary hover:text-accent transition-colors"
+          >
+            <ExternalLink className="w-3.5 h-3.5" />
+            aceedx.com
+          </a>
         </div>
 
         <button
@@ -64,24 +91,36 @@ const Navbar = () => {
             className="md:hidden bg-card border-b border-border overflow-hidden"
           >
             <div className="container mx-auto px-4 py-4 flex flex-col gap-3">
-              {navLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  className="text-sm font-medium text-muted-foreground hover:text-foreground py-2"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {link.label}
-                </a>
-              ))}
-              <div className="flex flex-col gap-2 pt-2 border-t border-border">
-                <Button variant="ghost" asChild>
-                  <Link to="/login">Sign In</Link>
-                </Button>
-                <Button className="gradient-primary text-primary-foreground border-0" asChild>
-                  <Link to="/register">Get Started</Link>
-                </Button>
-              </div>
+              {navLinks.map((link) =>
+                link.href.startsWith("/") ? (
+                  <Link
+                    key={link.label}
+                    to={link.href}
+                    className="text-sm font-medium text-muted-foreground hover:text-foreground py-2"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                ) : (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    className="text-sm font-medium text-muted-foreground hover:text-foreground py-2"
+                    onClick={(e) => { e.preventDefault(); handleClick(link.href); }}
+                  >
+                    {link.label}
+                  </a>
+                )
+              )}
+              <a
+                href="https://www.aceedx.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 text-sm font-medium text-primary py-2"
+              >
+                <ExternalLink className="w-3.5 h-3.5" />
+                aceedx.com
+              </a>
             </div>
           </motion.div>
         )}

@@ -1,42 +1,41 @@
-import { Globe } from "lucide-react";
 import { Link } from "react-router-dom";
+import aceedxLogo from "@/assets/aceedx-logo.png";
 
 const Footer = () => (
-  <footer className="bg-foreground text-primary-foreground py-16">
+  <footer className="bg-card border-t border-border py-12">
     <div className="container mx-auto px-4">
-      <div className="grid md:grid-cols-4 gap-8 mb-12">
+      <div className="grid md:grid-cols-3 gap-8 items-center">
         <div>
-          <div className="flex items-center gap-2 mb-4">
-            <div className="w-8 h-8 rounded-lg gradient-primary flex items-center justify-center">
-              <Globe className="w-4 h-4 text-primary-foreground" />
-            </div>
-            <span className="font-display text-lg font-bold">AceEdX</span>
-          </div>
-          <p className="text-sm opacity-70">
-            The trusted global platform for international student and teacher exchanges.
+          <Link to="/" className="flex items-center gap-2 mb-2">
+            <img src={aceedxLogo} alt="AceEdX" className="h-9 w-auto" />
+          </Link>
+          <p className="text-sm text-muted-foreground">
+            Empowering Indian School Leaders Worldwide
           </p>
         </div>
-        {[
-          { title: "Platform", links: [["Programs", "/marketplace"], ["Safety", "#safety"], ["Trust", "#trust"]] },
-          { title: "Company", links: [["About", "#about"], ["Contact", "#contact"], ["Careers", "#careers"]] },
-          { title: "Legal", links: [["Privacy", "#privacy"], ["Terms", "#terms"], ["Compliance", "#compliance"]] },
-        ].map((col) => (
-          <div key={col.title}>
-            <h4 className="font-display font-semibold mb-4">{col.title}</h4>
-            <ul className="space-y-2">
-              {col.links.map(([label, href]) => (
-                <li key={label}>
-                  <Link to={href} className="text-sm opacity-70 hover:opacity-100 transition-opacity">
-                    {label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </div>
-      <div className="border-t border-primary-foreground/10 pt-8 text-center text-sm opacity-50">
-        © {new Date().getFullYear()} AceEdX Global Exchange Hub. All rights reserved.
+
+        <div className="text-center text-sm text-muted-foreground">
+          © {new Date().getFullYear()} AceEdX · Global Immersive Program for School Leaders
+        </div>
+
+        <div className="text-right text-sm text-muted-foreground space-y-1">
+          <p>Questions? Reach us at</p>
+          <p>
+            <a href="tel:+919373387800" className="text-primary hover:text-accent transition-colors font-medium">
+              +91 93733 87800
+            </a>
+          </p>
+          <p>
+            <a
+              href="https://www.aceedx.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary hover:text-accent transition-colors font-medium"
+            >
+              www.aceedx.com
+            </a>
+          </p>
+        </div>
       </div>
     </div>
   </footer>
