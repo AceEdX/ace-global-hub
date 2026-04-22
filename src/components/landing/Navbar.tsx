@@ -51,6 +51,16 @@ const Navbar = () => {
               >
                 {link.label}
               </Link>
+            ) : 'external' in link && link.external ? (
+              <a
+                key={link.label}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              >
+                {link.label}
+              </a>
             ) : (
               <a
                 key={link.label}
