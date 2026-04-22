@@ -8,6 +8,10 @@ import { Lock, Clock, MapPin, Users, Calendar, Search, ArrowRight, X, School, Bo
 import { motion } from "framer-motion";
 import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
+import heroExchange from "@/assets/hero-exchange.jpg";
+import usaProgram from "@/assets/usa-program.jpg";
+import finlandProgram from "@/assets/finland-program.jpg";
+import galleryUsaCampus from "@/assets/gallery-usa-campus.jpg";
 
 const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSfkDPxPz5ZK_X2o_-zcrhXNMdBKf6eE4eFjk6WhCLN3jXZ-qw/viewform?embedded=true";
 
@@ -27,6 +31,7 @@ interface Program {
   status: ProgramStatus;
   description: string;
   facilities: string[];
+  image: string;
 }
 
 const programs: Program[] = [
@@ -44,6 +49,7 @@ const programs: Program[] = [
     status: "closed",
     description: "An extraordinary cohort of Indian school leaders visited leading American K–12 institutions, experiencing innovative pedagogy, technology integration, and high-performance school culture.",
     facilities: ["School Visits", "Leadership Workshops", "Networking"],
+    image: usaProgram,
   },
   {
     id: "2",
@@ -59,6 +65,7 @@ const programs: Program[] = [
     status: "open",
     description: "Immerse yourself in Sweden's globally acclaimed education model — known for student wellbeing, critical thinking, and fearless innovation. Return with frameworks to transform your school.",
     facilities: ["School Immersions", "AI & EdTech", "Certification"],
+    image: "https://images.unsplash.com/photo-1509356843151-3e7d96241e11?w=800&h=500&fit=crop",
   },
   {
     id: "3",
@@ -74,6 +81,7 @@ const programs: Program[] = [
     status: "closed",
     description: "A curated cultural immersion for students to experience the British education system, visit historic institutions, and build cross-cultural friendships.",
     facilities: ["School Visits", "Cultural Tours", "Homestay"],
+    image: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800&h=500&fit=crop",
   },
   {
     id: "4",
@@ -89,6 +97,7 @@ const programs: Program[] = [
     status: "closed",
     description: "An immersive professional development program for teachers to explore Finland's world-leading education practices, classroom innovation, and teacher autonomy models.",
     facilities: ["Classroom Observations", "Workshops", "Certification"],
+    image: finlandProgram,
   },
   {
     id: "5",
@@ -104,6 +113,7 @@ const programs: Program[] = [
     status: "closed",
     description: "Students explore Singapore's cutting-edge STEM education ecosystem, visit innovation labs, and collaborate with Singaporean students on real-world projects.",
     facilities: ["STEM Labs", "Innovation Hubs", "Project Collaboration"],
+    image: "https://images.unsplash.com/photo-1565967511849-76a60a516170?w=800&h=500&fit=crop",
   },
 ];
 
@@ -114,7 +124,7 @@ const marqueeItems = [
 ];
 
 const galleryImages = [
-  { src: "https://images.unsplash.com/photo-1523050854058-8df90110c476?w=600&h=400&fit=crop", caption: "Indian school leaders at USA school campus" },
+  { src: galleryUsaCampus, caption: "Indian school leaders at USA school campus" },
   { src: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&h=400&fit=crop", caption: "Knowledge exchange session with US educators" },
   { src: "https://images.unsplash.com/photo-1577896851231-70ef18881754?w=600&h=400&fit=crop", caption: "Witnessing American school culture firsthand" },
   { src: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&h=400&fit=crop", caption: "Evening networking with global education leaders" },
@@ -142,6 +152,34 @@ const eligibility = [
   { icon: Sprout, title: "School Owners & Trustees", desc: "Visionary school founders and management committee members with strategic authority to drive change." },
 ];
 
+const testimonials = [
+  {
+    quote: "The USA Program completely changed how I think about running a school. I came back with 20 ideas I could implement immediately — and a network of principals across the world who feel like family.",
+    name: "Principal Meena Sharma",
+    role: "Delhi Public School — USA Program, March 2026 Cohort",
+  },
+  {
+    quote: "As a teacher, experiencing the Finnish classroom model firsthand was transformative. The emphasis on student autonomy and creative thinking gave me tools I use every single day now.",
+    name: "Ravi Krishnan",
+    role: "Senior Science Teacher — Finland Program, 2025 Cohort",
+  },
+  {
+    quote: "The Singapore STEM exchange opened my eyes to what's possible. Collaborating with students from another country on real projects taught me more than any textbook ever could.",
+    name: "Ananya Desai",
+    role: "Class 11 Student — Singapore Exchange, 2025 Cohort",
+  },
+  {
+    quote: "I was hesitant at first, but the UK cultural exchange was the best decision for my school. Our teachers returned with fresh perspectives on inclusive education that we've since embedded into our curriculum.",
+    name: "Dr. Pradeep Nair",
+    role: "Principal, Greenfield International School — UK Program, 2025 Cohort",
+  },
+  {
+    quote: "The networking alone was worth it. I connected with principals from 8 different Indian states and 3 countries. We still meet monthly to share ideas and hold each other accountable.",
+    name: "Sunita Bhatt",
+    role: "Vice Principal, Modern Academy — USA Program, March 2026 Cohort",
+  },
+];
+
 /* ── Program Card ── */
 const ProgramCard = ({ program, onApply }: { program: Program; index: number; onApply: () => void }) => (
   <motion.div
@@ -152,15 +190,10 @@ const ProgramCard = ({ program, onApply }: { program: Program; index: number; on
   >
     <div className="relative h-56 overflow-hidden">
       <img
-        src={
-          program.country === "United States" ? "https://images.unsplash.com/photo-1523050854058-8df90110c476?w=800&h=500&fit=crop"
-          : program.country === "Sweden" ? "https://images.unsplash.com/photo-1509356843151-3e7d96241e11?w=800&h=500&fit=crop"
-          : program.country === "United Kingdom" ? "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800&h=500&fit=crop"
-          : program.country === "Finland" ? "https://images.unsplash.com/photo-1507272931001-fc06c17cedc4?w=800&h=500&fit=crop"
-          : "https://images.unsplash.com/photo-1565967511849-76a60a516170?w=800&h=500&fit=crop"
-        }
+        src={program.image}
         alt={program.country}
         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+        loading="lazy"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
       <div className="absolute top-4 right-4">
@@ -216,6 +249,7 @@ const Marketplace = () => {
   const [typeFilter, setTypeFilter] = useState("all");
   const [statusFilter, setStatusFilter] = useState("all");
   const [formOpen, setFormOpen] = useState(false);
+  const [activeTestimonial, setActiveTestimonial] = useState(0);
   const galleryRef = useRef<HTMLDivElement>(null);
 
   const filtered = programs.filter((p) => {
@@ -239,41 +273,55 @@ const Marketplace = () => {
           <div className="absolute bottom-10 left-1/3 w-80 h-80 rounded-full bg-secondary/5 blur-3xl animate-pulse-glow" style={{ animationDelay: "1.5s" }} />
         </div>
         <div className="container mx-auto px-4">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-3xl">
-            <div className="flex items-center gap-3 mb-6">
-              <span className="text-xs tracking-[0.25em] uppercase text-primary font-medium">Helsingborg, Sweden · November 2026</span>
-              <span className="w-8 h-px bg-primary/50" />
-              <Badge className="bg-green-500/90 text-white border-green-600 animate-pulse-green text-xs">Now Open</Badge>
-            </div>
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-light leading-[1.1] mb-6 text-foreground">
-              International Exchange<br />Programs for<br />
-              <em className="text-primary italic font-normal">Schools Worldwide</em>
-            </h1>
-            <p className="text-muted-foreground text-lg max-w-xl mb-8 font-sans">
-              Trusted, curated international exchange programs for principals, teachers, and students.
-              Experience world-class education systems and bring transformative ideas back to your school.
-            </p>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+              <div className="flex items-center gap-3 mb-6">
+                <span className="text-xs tracking-[0.25em] uppercase text-primary font-medium">Helsingborg, Sweden · November 2026</span>
+                <span className="w-8 h-px bg-primary/50" />
+                <Badge className="bg-green-500/90 text-white border-green-600 animate-pulse-green text-xs">Now Open</Badge>
+              </div>
+              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-light leading-[1.1] mb-6 text-foreground">
+                International Exchange<br />Programs for<br />
+                <em className="text-primary italic font-normal">Schools Worldwide</em>
+              </h1>
+              <p className="text-muted-foreground text-lg max-w-xl mb-8 font-sans">
+                Trusted, curated international exchange programs for principals, teachers, and students.
+                Experience world-class education systems and bring transformative ideas back to your school.
+              </p>
 
-            <div className="flex gap-8 mb-8">
-              <div><span className="block text-xs tracking-widest uppercase text-muted-foreground">Next Program</span><span className="font-display text-xl text-primary font-semibold">Helsingborg 🇸🇪</span></div>
-              <div><span className="block text-xs tracking-widest uppercase text-muted-foreground">When</span><span className="font-display text-xl text-primary font-semibold">November 2026</span></div>
-              <div><span className="block text-xs tracking-widest uppercase text-muted-foreground">Seats</span><span className="font-display text-xl text-primary font-semibold">Limited</span></div>
-            </div>
+              <div className="flex gap-8 mb-8">
+                <div><span className="block text-xs tracking-widest uppercase text-muted-foreground">Next Program</span><span className="font-display text-xl text-primary font-semibold">Helsingborg 🇸🇪</span></div>
+                <div><span className="block text-xs tracking-widest uppercase text-muted-foreground">When</span><span className="font-display text-xl text-primary font-semibold">November 2026</span></div>
+                <div><span className="block text-xs tracking-widest uppercase text-muted-foreground">Seats</span><span className="font-display text-xl text-primary font-semibold">Limited</span></div>
+              </div>
 
-            <div className="flex flex-wrap gap-3 mb-8">
-              <Badge className="bg-red-100 text-red-600 border-red-200">🇺🇸 USA March 2026 — Closed</Badge>
-              <Badge className="bg-green-100 text-green-700 border-green-300 animate-pulse-green">🇸🇪 Sweden Nov 2026 — Open</Badge>
-            </div>
+              <div className="flex flex-wrap gap-3 mb-8">
+                <Badge className="bg-red-100 text-red-600 border-red-200">🇺🇸 USA March 2026 — Closed</Badge>
+                <Badge className="bg-green-100 text-green-700 border-green-300 animate-pulse-green">🇸🇪 Sweden Nov 2026 — Open</Badge>
+              </div>
 
-            <div className="flex gap-4">
-              <Button onClick={() => setFormOpen(true)} className="gradient-primary text-white border-0 shadow-glow px-8 py-6 text-base">
-                Register My Interest <ArrowRight className="ml-2 w-4 h-4" />
-              </Button>
-              <Button variant="outline" className="border-border text-foreground hover:border-primary hover:text-primary px-6 py-6" asChild>
-                <a href="#programs">View All Programs</a>
-              </Button>
-            </div>
-          </motion.div>
+              <div className="flex gap-4">
+                <Button onClick={() => setFormOpen(true)} className="gradient-primary text-white border-0 shadow-glow px-8 py-6 text-base">
+                  Register My Interest <ArrowRight className="ml-2 w-4 h-4" />
+                </Button>
+                <Button variant="outline" className="border-border text-foreground hover:border-primary hover:text-primary px-6 py-6" asChild>
+                  <a href="#programs">View All Programs</a>
+                </Button>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              className="relative hidden lg:block"
+            >
+              <div className="relative rounded-2xl overflow-hidden shadow-lg">
+                <img src={heroExchange} alt="Students and teachers on an international exchange" className="w-full h-auto" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/30 to-transparent" />
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -281,8 +329,8 @@ const Marketplace = () => {
       <div className="bg-primary py-3 overflow-hidden">
         <div className="flex gap-12 animate-marquee whitespace-nowrap">
           {[...marqueeItems, ...marqueeItems].map((item, i) => (
-            <span key={i} className="text-xs font-semibold tracking-widest uppercase text-white flex items-center gap-3 flex-shrink-0">
-              <span className="w-1 h-1 rounded-full bg-white/50" />
+            <span key={i} className="text-xs font-semibold tracking-widest uppercase text-primary-foreground flex items-center gap-3 flex-shrink-0">
+              <span className="w-1 h-1 rounded-full bg-primary-foreground/50" />
               {item}
             </span>
           ))}
@@ -432,24 +480,43 @@ const Marketplace = () => {
         </div>
       </section>
 
-      {/* ── TESTIMONIAL ── */}
+      {/* ── TESTIMONIALS ── */}
       <section className="py-16 bg-gradient-to-br from-primary/[0.06] to-secondary/[0.04] border-y border-border">
-        <div className="container mx-auto px-4 text-center">
-          <span className="font-display text-8xl text-primary/30 leading-none">"</span>
-          <blockquote className="font-display italic text-xl md:text-2xl font-light max-w-3xl mx-auto mb-6 text-foreground leading-relaxed">
-            The USA Program completely changed how I think about running a school. I came back with 20 ideas I could
-            implement immediately — and a network of principals across the world who feel like family.
-          </blockquote>
-          <div className="text-sm text-muted-foreground">
-            <strong className="block text-foreground text-base">Principal Meena Sharma</strong>
-            Delhi Public School — USA Program, March 2026 Cohort
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-10">
+            <p className="text-xs tracking-[0.3em] uppercase text-primary mb-3">What They Say</p>
+            <h2 className="font-display text-3xl font-light text-foreground">
+              Voices from Our <em className="text-primary italic">Programs</em>
+            </h2>
+          </div>
+
+          <div className="max-w-3xl mx-auto text-center">
+            <span className="font-display text-8xl text-primary/30 leading-none">"</span>
+            <blockquote className="font-display italic text-xl md:text-2xl font-light max-w-3xl mx-auto mb-6 text-foreground leading-relaxed">
+              {testimonials[activeTestimonial].quote}
+            </blockquote>
+            <div className="text-sm text-muted-foreground mb-8">
+              <strong className="block text-foreground text-base">{testimonials[activeTestimonial].name}</strong>
+              {testimonials[activeTestimonial].role}
+            </div>
+
+            <div className="flex justify-center gap-2">
+              {testimonials.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setActiveTestimonial(i)}
+                  className={`w-3 h-3 rounded-full transition-all ${i === activeTestimonial ? "bg-primary scale-110" : "bg-border hover:bg-muted-foreground/40"}`}
+                  aria-label={`Testimonial ${i + 1}`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* ── CTA SECTION ── */}
       <section id="register" className="py-24 text-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_50%,hsl(204_100%_33%/0.08),transparent_70%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_50%,hsl(210_100%_40%/0.08),transparent_70%)]" />
         <div className="container mx-auto px-4 relative z-10">
           <p className="text-xs tracking-[0.3em] uppercase text-primary mb-4">Helsingborg, Sweden · November 2026</p>
           <h2 className="font-display text-4xl md:text-5xl font-light mb-6 text-foreground">
