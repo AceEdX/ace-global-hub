@@ -9,11 +9,13 @@ const Navbar = () => {
   const location = useLocation();
   const isMarketplace = location.pathname === "/marketplace";
 
+  const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSfkDPxPz5ZK_X2o_-zcrhXNMdBKf6eE4eFjk6WhCLN3jXZ-qw/viewform";
+
   const navLinks = isMarketplace
     ? [
         { label: "Programs", href: "#programs" },
         { label: "Why Sweden", href: "#why-sweden" },
-        { label: "Itinerary", href: "#itinerary" },
+        { label: "Itinerary", href: GOOGLE_FORM_URL, external: true },
         { label: "Eligibility", href: "#eligibility" },
         { label: "Register", href: "#register" },
       ]
@@ -49,6 +51,16 @@ const Navbar = () => {
               >
                 {link.label}
               </Link>
+            ) : 'external' in link && link.external ? (
+              <a
+                key={link.label}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              >
+                {link.label}
+              </a>
             ) : (
               <a
                 key={link.label}
@@ -101,6 +113,17 @@ const Navbar = () => {
                   >
                     {link.label}
                   </Link>
+                ) : 'external' in link && link.external ? (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm font-medium text-muted-foreground hover:text-foreground py-2"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {link.label}
+                  </a>
                 ) : (
                   <a
                     key={link.label}
