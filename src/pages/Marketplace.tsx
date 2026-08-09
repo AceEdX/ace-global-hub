@@ -297,7 +297,7 @@ const Marketplace = () => {
 
               <div className="flex flex-wrap gap-3 mb-8">
                 <Badge className="bg-red-100 text-red-600 border-red-200">🇺🇸 USA March 2026 — Closed</Badge>
-                <Badge className="bg-green-100 text-green-700 border-green-300 animate-pulse-green">🇸🇪 🇸🇪 Sweden May 2027 — Open</Badge>
+                <Badge className="bg-green-100 text-green-700 border-green-300 animate-pulse-green">🇸🇪 Sweden May 2027 — Open</Badge>
               </div>
 
               <div className="flex gap-4">
@@ -343,7 +343,7 @@ const Marketplace = () => {
           <div className="text-center mb-12">
             <p className="text-xs tracking-[0.3em] uppercase text-primary mb-3">AceEdX International Exchange</p>
             <h2 className="font-display text-3xl md:text-4xl font-light text-foreground">
-              Our 2026 <em className="text-primary italic">Exchange Programs</em>
+              Our <em className="text-primary italic">Exchange Programs</em>
             </h2>
             <p className="text-muted-foreground mt-3 max-w-xl mx-auto font-sans text-sm">
               Trusted programs for principals, teachers, and students — designed to build global perspectives and transform education.

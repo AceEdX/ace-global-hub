@@ -7,7 +7,7 @@ import aceedxLogo from "@/assets/aceedx-logo.png";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
-  const isMarketplace = location.pathname === "/marketplace";
+  const isMarketplace = location.pathname === "/marketplace" || location.pathname === "/";
 
   const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSfkDPxPz5ZK_X2o_-zcrhXNMdBKf6eE4eFjk6WhCLN3jXZ-qw/viewform";
 
