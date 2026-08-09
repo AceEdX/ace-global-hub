@@ -59,7 +59,7 @@ const programs: Program[] = [
     flag: "🇸🇪",
     type: "principal",
     duration: "7 Days",
-    dates: "November 2026",
+    dates: "16–23 May 2027",
     slots: 30,
     slotsRemaining: 15,
     status: "open",
@@ -276,7 +276,7 @@ const Marketplace = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
               <div className="flex items-center gap-3 mb-6">
-                <span className="text-xs tracking-[0.25em] uppercase text-primary font-medium">Helsingborg, Sweden · November 2026</span>
+                <span className="text-xs tracking-[0.25em] uppercase text-primary font-medium">Helsingborg, Sweden · 16–23 May 2027</span>
                 <span className="w-8 h-px bg-primary/50" />
                 <Badge className="bg-green-500/90 text-white border-green-600 animate-pulse-green text-xs">Now Open</Badge>
               </div>
@@ -291,13 +291,13 @@ const Marketplace = () => {
 
               <div className="flex gap-8 mb-8">
                 <div><span className="block text-xs tracking-widest uppercase text-muted-foreground">Next Program</span><span className="font-display text-xl text-primary font-semibold">Helsingborg 🇸🇪</span></div>
-                <div><span className="block text-xs tracking-widest uppercase text-muted-foreground">When</span><span className="font-display text-xl text-primary font-semibold">November 2026</span></div>
+                <div><span className="block text-xs tracking-widest uppercase text-muted-foreground">When</span><span className="font-display text-xl text-primary font-semibold">16–23 May 2027</span></div>
                 <div><span className="block text-xs tracking-widest uppercase text-muted-foreground">Seats</span><span className="font-display text-xl text-primary font-semibold">Limited</span></div>
               </div>
 
               <div className="flex flex-wrap gap-3 mb-8">
                 <Badge className="bg-red-100 text-red-600 border-red-200">🇺🇸 USA March 2026 — Closed</Badge>
-                <Badge className="bg-green-100 text-green-700 border-green-300 animate-pulse-green">🇸🇪 Sweden Nov 2026 — Open</Badge>
+                <Badge className="bg-green-100 text-green-700 border-green-300 animate-pulse-green">🇸🇪 Sweden May 2027 — Open</Badge>
               </div>
 
               <div className="flex gap-4">
@@ -343,7 +343,7 @@ const Marketplace = () => {
           <div className="text-center mb-12">
             <p className="text-xs tracking-[0.3em] uppercase text-primary mb-3">AceEdX International Exchange</p>
             <h2 className="font-display text-3xl md:text-4xl font-light text-foreground">
-              Our 2026 <em className="text-primary italic">Exchange Programs</em>
+              Our <em className="text-primary italic">Exchange Programs</em>
             </h2>
             <p className="text-muted-foreground mt-3 max-w-xl mx-auto font-sans text-sm">
               Trusted programs for principals, teachers, and students — designed to build global perspectives and transform education.
@@ -518,7 +518,7 @@ const Marketplace = () => {
       <section id="register" className="py-24 text-center relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_50%,hsl(210_100%_40%/0.08),transparent_70%)]" />
         <div className="container mx-auto px-4 relative z-10">
-          <p className="text-xs tracking-[0.3em] uppercase text-primary mb-4">Helsingborg, Sweden · November 2026</p>
+          <p className="text-xs tracking-[0.3em] uppercase text-primary mb-4">Helsingborg, Sweden · 16–23 May 2027</p>
           <h2 className="font-display text-4xl md:text-5xl font-light mb-6 text-foreground">
             Seats Are Filling Fast.<br />
             <em className="text-primary italic">Don't Miss Your Spot.</em>
@@ -536,7 +536,7 @@ const Marketplace = () => {
               onClick={() => setFormOpen(true)}
               className="gradient-primary text-white border-0 shadow-glow text-base px-10 py-7 text-lg"
             >
-              Register My Interest for Sweden 2026
+              Register My Interest for Sweden 2027
             </Button>
           </div>
           <p className="text-xs text-muted-foreground mt-4">No commitment required at this stage · We'll reach out with full details & pricing</p>
@@ -549,9 +549,9 @@ const Marketplace = () => {
       <Dialog open={formOpen} onOpenChange={setFormOpen}>
         <DialogContent className="sm:max-w-[680px] p-0 bg-card border-border overflow-hidden">
           <DialogHeader className="p-6 pb-4 border-b border-border">
-            <DialogTitle className="font-display text-2xl">Register for Sweden 2026 🇸🇪</DialogTitle>
+            <DialogTitle className="font-display text-2xl">Register for Sweden 2027 🇸🇪</DialogTitle>
             <DialogDescription className="text-sm text-muted-foreground">
-              Global Immersive Program for School Leaders · November 2026
+              Global Immersive Program for School Leaders · 16–23 May 2027
             </DialogDescription>
           </DialogHeader>
           <iframe
