@@ -9,7 +9,7 @@ const Navbar = () => {
   const location = useLocation();
   const isMarketplace = location.pathname === "/marketplace" || location.pathname === "/";
 
-  const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSfkDPxPz5ZK_X2o_-zcrhXNMdBKf6eE4eFjk6WhCLN3jXZ-qw/viewform";
+  const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLScN5mmD4pc1A6DVLuaRrrOESMqH7EcFmdHNXwHAvq2_VzmGjw/viewform";
 
   const navLinks = isMarketplace
     ? [

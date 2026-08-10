@@ -13,7 +13,7 @@ import usaProgram from "@/assets/usa-program.jpg";
 import finlandProgram from "@/assets/finland-program.jpg";
 import galleryUsaCampus from "@/assets/gallery-usa-campus.jpg";
 
-const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSfkDPxPz5ZK_X2o_-zcrhXNMdBKf6eE4eFjk6WhCLN3jXZ-qw/viewform?embedded=true";
+const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLScN5mmD4pc1A6DVLuaRrrOESMqH7EcFmdHNXwHAvq2_VzmGjw/viewform?embedded=true";
 
 type ProgramStatus = "open" | "closed";
 
