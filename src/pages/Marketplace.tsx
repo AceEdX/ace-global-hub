@@ -285,7 +285,7 @@ const Marketplace = () => {
                 <em className="text-primary italic font-normal">Schools Worldwide</em>
               </h1>
               <p className="text-muted-foreground text-lg max-w-xl mb-8 font-sans">
-                Trusted, curated international exchange programs for principals, teachers, and students.
+                Trusted, curated international exchange programs for Principals, School Owners, Vice Principals.
                 Experience world-class education systems and bring transformative ideas back to your school.
               </p>
 
