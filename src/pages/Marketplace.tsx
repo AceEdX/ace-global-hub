@@ -8,7 +8,7 @@ import { Lock, Clock, MapPin, Users, Calendar, Search, ArrowRight, X, School, Bo
 import { motion } from "framer-motion";
 import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
-import heroExchange from "@/assets/hero-exchange.jpg";
+import heroSwedenPrincipals from "@/assets/hero-sweden-principals.jpg";
 import usaProgram from "@/assets/usa-program.jpg";
 import finlandProgram from "@/assets/finland-program.jpg";
 import galleryUsaCampus from "@/assets/gallery-usa-campus.jpg";
@@ -317,7 +317,7 @@ const Marketplace = () => {
               className="relative hidden lg:block"
             >
               <div className="relative rounded-2xl overflow-hidden shadow-lg">
-                <img src={heroExchange} alt="Students and teachers on an international exchange" className="w-full h-auto" />
+                <img src={heroSwedenPrincipals} alt="School principals on the AceEdX Sweden program in Stockholm" width={1024} height={1024} className="w-full h-auto" />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/30 to-transparent" />
               </div>
             </motion.div>
