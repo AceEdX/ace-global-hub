@@ -54,7 +54,7 @@ const programs: Program[] = [
   {
     id: "2",
     title: "Global Immersive Program for School Leaders",
-    hostSchool: "Top Swedish Schools, Helsingborg",
+    hostSchool: "Top Swedish Schools, Stockholm",
     country: "Sweden",
     flag: "🇸🇪",
     type: "principal",
@@ -119,7 +119,7 @@ const programs: Program[] = [
 
 const marqueeItems = [
   "School Visits", "Leadership Workshops", "Swedish EdTech Immersion",
-  "Global Principal Network", "NEP 2020 Alignment Sessions", "Helsingborg City Experience",
+  "Global Principal Network", "NEP 2020 Alignment Sessions", "Stockholm City Experience",
   "AI in Education Masterclass",
 ];
 
@@ -276,7 +276,7 @@ const Marketplace = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
               <div className="flex items-center gap-3 mb-6">
-                <span className="text-xs tracking-[0.25em] uppercase text-primary font-medium">Helsingborg, Sweden · 16–23 May 2027</span>
+                <span className="text-xs tracking-[0.25em] uppercase text-primary font-medium">STOCKHOLM, SWEDEN · 16–23 MAY 2027</span>
                 <span className="w-8 h-px bg-primary/50" />
                 <Badge className="bg-green-500/90 text-white border-green-600 animate-pulse-green text-xs">Now Open</Badge>
               </div>
@@ -290,7 +290,7 @@ const Marketplace = () => {
               </p>
 
               <div className="flex gap-8 mb-8">
-                <div><span className="block text-xs tracking-widest uppercase text-muted-foreground">Next Program</span><span className="font-display text-xl text-primary font-semibold">Helsingborg 🇸🇪</span></div>
+                <div><span className="block text-xs tracking-widest uppercase text-muted-foreground">Next Program</span><span className="font-display text-xl text-primary font-semibold">STOCKHOLM 🇸🇪</span></div>
                 <div><span className="block text-xs tracking-widest uppercase text-muted-foreground">When</span><span className="font-display text-xl text-primary font-semibold">16–23 May 2027</span></div>
                 <div><span className="block text-xs tracking-widest uppercase text-muted-foreground">Seats</span><span className="font-display text-xl text-primary font-semibold">Limited</span></div>
               </div>
