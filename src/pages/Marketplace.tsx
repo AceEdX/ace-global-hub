@@ -546,21 +546,52 @@ const Marketplace = () => {
       <Footer />
 
       {/* ── GOOGLE FORM MODAL ── */}
-      <Dialog open={formOpen} onOpenChange={setFormOpen}>
+      <Dialog open={formOpen} onOpenChange={(o) => { setFormOpen(o); if (!o) setFormSubmitted(false); }}>
         <DialogContent className="sm:max-w-[680px] p-0 bg-card border-border overflow-hidden">
           <DialogHeader className="p-6 pb-4 border-b border-border">
-            <DialogTitle className="font-display text-2xl">Register for Sweden 2027 🇸🇪</DialogTitle>
+            <DialogTitle className="font-display text-2xl">May 16th to 23rd 2027 🇸🇪</DialogTitle>
             <DialogDescription className="text-sm text-muted-foreground">
-              Global Immersive Program for School Leaders · 16–23 May 2027
+              Global Immersive Program for School Leaders · Stockholm, Sweden
             </DialogDescription>
           </DialogHeader>
-          <iframe
-            src={GOOGLE_FORM_URL}
-            className="w-full h-[520px] border-0 bg-white"
-            title="Registration Form"
-          />
+          {formSubmitted ? (
+            <div className="p-8 text-center space-y-4">
+              <h3 className="font-display text-xl">Thank you for registering!</h3>
+              <p className="text-sm text-muted-foreground">
+                Your details have been received. View the full program brochure below.
+              </p>
+              <Button asChild size="lg" className="w-full sm:w-auto">
+                <a href={BROCHURE_URL} target="_blank" rel="noopener noreferrer">
+                  View Program Brochure <ArrowRight className="ml-2 w-4 h-4" />
+                </a>
+              </Button>
+            </div>
+          ) : (
+            <>
+              <iframe
+                src={GOOGLE_FORM_URL}
+                className="w-full h-[520px] border-0 bg-white"
+                title="Registration Form"
+                onLoad={() => {
+                  if (formLoadedOnce.current) setFormSubmitted(true);
+                  formLoadedOnce.current = true;
+                }}
+              />
+              <div className="p-4 border-t border-border text-center">
+                <a
+                  href={BROCHURE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm font-medium text-primary hover:underline"
+                >
+                  Already submitted? View the brochure →
+                </a>
+              </div>
+            </>
+          )}
         </DialogContent>
       </Dialog>
+
     </div>
   );
 };
