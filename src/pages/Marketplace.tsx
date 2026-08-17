@@ -14,6 +14,7 @@ import finlandProgram from "@/assets/finland-program.jpg";
 import galleryUsaCampus from "@/assets/gallery-usa-campus.jpg";
 
 const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLScN5mmD4pc1A6DVLuaRrrOESMqH7EcFmdHNXwHAvq2_VzmGjw/viewform?embedded=true";
+const BROCHURE_URL = "https://sweden2026.my.canva.site/";
 
 type ProgramStatus = "open" | "closed";
 
@@ -249,6 +250,8 @@ const Marketplace = () => {
   const [typeFilter, setTypeFilter] = useState("all");
   const [statusFilter, setStatusFilter] = useState("all");
   const [formOpen, setFormOpen] = useState(false);
+  const [formSubmitted, setFormSubmitted] = useState(false);
+  const formLoadedOnce = useRef(false);
   const [activeTestimonial, setActiveTestimonial] = useState(0);
   const galleryRef = useRef<HTMLDivElement>(null);
 
@@ -546,7 +549,7 @@ const Marketplace = () => {
       <Footer />
 
       {/* ── GOOGLE FORM MODAL ── */}
-      <Dialog open={formOpen} onOpenChange={(o) => { setFormOpen(o); if (!o) setFormSubmitted(false); }}>
+      <Dialog open={formOpen} onOpenChange={(o) => { setFormOpen(o); if (!o) { setFormSubmitted(false); formLoadedOnce.current = false; } }}>
         <DialogContent className="sm:max-w-[680px] p-0 bg-card border-border overflow-hidden">
           <DialogHeader className="p-6 pb-4 border-b border-border">
             <DialogTitle className="font-display text-2xl">May 16th to 23rd 2027 🇸🇪</DialogTitle>
